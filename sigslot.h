@@ -2701,6 +2701,89 @@ namespace sigslot {
 		}
 	};
 
+namespace impl
+{
+
+struct empty {};
+
+} // namespace impl
+
+// signal can be used instead of the numbered signalN classes.
+// For example:
+//
+//     sigslot::signal<int, double> signal;
+//
+// instead of
+//
+//     sigslot::signal2<int, double> signal;
+template<typename A1 = impl::empty, typename A2 = impl::empty,
+         typename A3 = impl::empty, typename A4 = impl::empty,
+         typename A5 = impl::empty, typename A6 = impl::empty,
+         typename A7 = impl::empty, typename A8 = impl::empty>
+struct signal;
+
+template<>
+struct signal<>: public signal0<>
+{};
+
+template<typename A1>
+struct signal<A1>: public signal1<A1>
+{};
+
+template<typename A1, typename A2>
+struct signal<A1, A2>: public signal2<A1, A2>
+{};
+
+template<typename A1, typename A2, typename A3>
+struct signal<A1, A2, A3>: public signal3<A1, A2, A3>
+{};
+
+template<typename A1, typename A2, typename A3, typename A4>
+struct signal<A1, A2, A3, A4>: public signal4<A1, A2, A3, A4>
+{};
+
+template<typename A1, typename A2, typename A3, typename A4, typename A5>
+struct signal<A1, A2, A3, A4, A5>: public signal5<A1, A2, A3, A4, A5>
+{};
+
+template<typename A1, typename A2, typename A3, typename A4, typename A5,
+         typename A6>
+struct signal<A1, A2, A3, A4, A5, A6>: public signal6<A1, A2, A3, A4, A5, A6>
+{};
+
+template<typename A1, typename A2, typename A3, typename A4, typename A5,
+         typename A6, typename A7>
+struct signal<A1, A2, A3, A4, A5, A6, A7>:
+        public signal7<A1, A2, A3, A4, A5, A6, A7>
+{};
+
+template<typename A1, typename A2, typename A3, typename A4, typename A5,
+         typename A6, typename A7, typename A8>
+struct signal: public signal8<A1, A2, A3, A4, A5, A6, A7, A8>
+{};
+
+// Some convenience methods for signal handling.
+template<typename Derived>
+struct has_signals
+{
+    virtual ~has_signals() {}
+
+    // Connect a signal to a slot on the specified destination object.
+    template<typename Signal, typename Dst, typename Sig>
+    static inline void connect(Signal &signal, Dst *dst, Sig memfun)
+    {
+        signal.connect(dst, memfun);
+    }
+
+    // Connect a signal to a slot on 'this'.
+    template<typename Signal, typename Sig>
+    inline void connect(Signal &signal, Sig memfun)
+    {
+        Derived* dst = static_cast<Derived*>(this);
+        connect(signal, dst, memfun);
+    }
+};
+
 }; // namespace sigslot
 
 #endif // __SIGSLOT_H__
