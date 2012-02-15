@@ -114,25 +114,10 @@ namespace sigslot {
 	class single_threaded
 	{
 	public:
-		single_threaded()
-		{
-			;
-		}
-
-		virtual ~single_threaded()
-		{
-			;
-		}
-
-		virtual void lock()
-		{
-			;
-		}
-
-		virtual void unlock()
-		{
-			;
-		}
+		single_threaded() {}
+		virtual ~single_threaded() {}
+		virtual void lock() {}
+		virtual void unlock() {}
 	};
 
 #ifdef _SIGSLOT_HAS_WIN32_THREADS
@@ -152,14 +137,10 @@ namespace sigslot {
 		}
 
 		multi_threaded_global(const multi_threaded_global&)
-		{
-			;
-		}
+		{}
 
 		virtual ~multi_threaded_global()
-		{
-			;
-		}
+		{}
 
 		virtual void lock()
 		{
@@ -223,14 +204,10 @@ namespace sigslot {
 		}
 
 		multi_threaded_global(const multi_threaded_global&)
-		{
-			;
-		}
+		{}
 
 		virtual ~multi_threaded_global()
-		{
-			;
-		}
+		{}
 
 		virtual void lock()
 		{
@@ -582,9 +559,7 @@ namespace sigslot {
 
 	public:
 		has_slots()
-		{
-			;
-		}
+		{}
 
 		has_slots(const has_slots& hs)
 			: mt_policy(hs)
@@ -656,8 +631,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection0()
-		{
-                }
+		{}
 
 		virtual _connection_base0<mt_policy>* clone()
 		{
@@ -701,8 +675,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection1()
-		{
-                }
+		{}
 
 		virtual _connection_base1<arg1_type, mt_policy>* clone()
 		{
@@ -747,8 +720,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection2()
-		{
-                }
+		{}
 
 		virtual _connection_base2<arg1_type, arg2_type, mt_policy>* clone()
 		{
@@ -793,8 +765,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection3()
-		{
-                }
+		{}
 
 		virtual _connection_base3<arg1_type, arg2_type, arg3_type, mt_policy>* clone()
 		{
@@ -841,8 +812,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection4()
-		{
-                }
+		{}
 
 		virtual _connection_base4<arg1_type, arg2_type, arg3_type, arg4_type, mt_policy>* clone()
 		{
@@ -891,8 +861,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection5()
-		{
-                }
+		{}
 
 		virtual _connection_base5<arg1_type, arg2_type, arg3_type, arg4_type,
 			arg5_type, mt_policy>* clone()
@@ -945,8 +914,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection6()
-		{
-                }
+		{}
 
 		virtual _connection_base6<arg1_type, arg2_type, arg3_type, arg4_type,
 			arg5_type, arg6_type, mt_policy>* clone()
@@ -999,8 +967,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection7()
-		{
-                }
+		{}
 
 		virtual _connection_base7<arg1_type, arg2_type, arg3_type, arg4_type,
 			arg5_type, arg6_type, arg7_type, mt_policy>* clone()
@@ -1055,8 +1022,7 @@ namespace sigslot {
 		}
 
 		virtual ~_connection8()
-		{
-                }
+		{}
 
 		virtual _connection_base8<arg1_type, arg2_type, arg3_type, arg4_type,
 			arg5_type, arg6_type, arg7_type, arg8_type, mt_policy>* clone()
