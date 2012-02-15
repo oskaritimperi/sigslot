@@ -423,18 +423,18 @@ namespace sigslot {
 
     // Implements common functionality of signalN classes. signalN classes
     // derive from this class.
-    template<class ConnList, class mt_policy>
+    template<class T, class mt_policy>
     class _signal_base_middle: public _signal_base<mt_policy>
     {
     public:
 
-        typedef ConnList connections_list;
-        typedef typename ConnList::iterator iterator;
-        typedef typename ConnList::const_iterator const_iterator;
+        typedef T connections_list;
+        typedef typename connections_list::iterator iterator;
+        typedef typename connections_list::const_iterator const_iterator;
 
         _signal_base_middle() {}
 
-        _signal_base_middle(const _signal_base_middle<ConnList, mt_policy> &s)
+        _signal_base_middle(const _signal_base_middle<connections_list, mt_policy> &s)
             : _signal_base<mt_policy>(s)
         {
 			lock_block<mt_policy> lock(this);
