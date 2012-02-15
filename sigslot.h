@@ -101,7 +101,13 @@
 #	endif
 #endif
 
-#define SIGSLOT_EMIT broadcast
+#ifndef SIGSLOT_EMIT
+#	ifdef QT_VERSION
+#		define SIGSLOT_EMIT broadcast
+#	else
+#		define SIGSLOT_EMIT emit
+#	endif
+#endif
 
 namespace sigslot {
 
