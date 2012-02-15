@@ -2234,19 +2234,7 @@ namespace sigslot {
 
 		void operator()()
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT();
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT();
 		}
 	};
 
@@ -2298,19 +2286,7 @@ namespace sigslot {
 
 		void operator()(arg1_type a1)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1);
 		}
 	};
 
@@ -2363,19 +2339,7 @@ namespace sigslot {
 
 		void operator()(arg1_type a1, arg2_type a2)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2);
 		}
 	};
 
@@ -2429,19 +2393,7 @@ namespace sigslot {
 
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3);
 		}
 	};
 
@@ -2496,19 +2448,7 @@ namespace sigslot {
 
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3, a4);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3, a4);
 		}
 	};
 
@@ -2568,19 +2508,7 @@ namespace sigslot {
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 			arg5_type a5)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3, a4, a5);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3, a4, a5);
 		}
 	};
 
@@ -2642,19 +2570,7 @@ namespace sigslot {
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 			arg5_type a5, arg6_type a6)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6);
 		}
 	};
 
@@ -2717,19 +2633,7 @@ namespace sigslot {
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 			arg5_type a5, arg6_type a6, arg7_type a7)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6, a7);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6, a7);
 		}
 	};
 
@@ -2793,19 +2697,7 @@ namespace sigslot {
 		void operator()(arg1_type a1, arg2_type a2, arg3_type a3, arg4_type a4,
 			arg5_type a5, arg6_type a6, arg7_type a7, arg8_type a8)
 		{
-			lock_block<mt_policy> lock(this);
-			typename connections_list::const_iterator itNext, it = m_connected_slots.begin();
-			typename connections_list::const_iterator itEnd = m_connected_slots.end();
-
-			while(it != itEnd)
-			{
-				itNext = it;
-				++itNext;
-
-				(*it)->SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6, a7, a8);
-
-				it = itNext;
-			}
+			SIGSLOT_EMIT(a1, a2, a3, a4, a5, a6, a7, a8);
 		}
 	};
 
